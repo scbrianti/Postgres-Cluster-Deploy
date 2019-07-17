@@ -1,17 +1,20 @@
 #!/bin/bash
 #####################################################################################################
-# This script will install Postgres as Slave Node on your Debian 9 server.
-# Author: Sidnei Brianti
+# OS: Debian 9
+# PostgreSQL: 9.6
+# Autor: Sidnei Brianti
 #----------------------------------------------------------------------------------------------------
-# https://raw.githubusercontent.com/scbrianti/Postgres-Cluster-Deploy/9.6/02-slave-install.sh
-# Place this content in it and then make the file executable:
+# wget https://raw.githubusercontent.com/scbrianti/Postgres-Cluster-Deploy/9.6/02-slave-install.sh
+# Torne o arquivo executavel
 # sudo chmod +x 02-slave-install.sh
-# Execute the script to install Postgres:
+# Altere as variáveis MASTER,SLAVE para os parametros de sua rede
+# Execute o script para instalar Postgresql Master:
 # sudo ./02-slave-install.sh
 #######################################################################################################
 
-MASTER="x.x.x.x"
-SLAVE="x.x.x.x"
+
+MASTER="192.168.0.3"
+SLAVE="192.168.0.4"
 
 #--------------------------------------------------
 # Update Server
