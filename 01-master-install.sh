@@ -12,8 +12,8 @@
 
 ODOO_DB_USER="odoo"
 ODOO_DB_PASS="odoo"
-MASTER="master.domain"
-SLAVE="slave.domain"
+MASTER="x.x.x.x"
+SLAVE="x.x.x.x"
 SLAVE_USER="sidnei"
 SLAVE_PASS="sidnei"
 NETWORK="x.x.x.0/24"
