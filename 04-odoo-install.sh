@@ -21,7 +21,7 @@ $OE_EXTRA/oca-server-auth/"
 
 INSTALL_WKHTMLTOPDF="True"
 
-PGBOUNCER="pgbouncer.domain"
+PGBOUNCER="x.x.x.x"
 PGBOUNCER_PORT="6432"
 
 
