@@ -1,11 +1,9 @@
 #!/bin/bash
 #####################################################################################################
 # This script will install PgBouncer on your Debian 9 server.
-# Author: Mohamed Hammad
+# Author: Sidnei Brianti
 #----------------------------------------------------------------------------------------------------
-# Make a new file:
-# sudo nano 03-pgbouncer-install.sh
-# Place this content in it and then make the file executable:
+# wget https://raw.githubusercontent.com/scbrianti/Postgres-Cluster-Deploy/9.6/03-pgbouncer-install.sh
 # sudo chmod +x 03-pgbouncer-install.sh
 # Execute the script to install Postgres:
 # sudo ./03-pgbouncer-install.sh
