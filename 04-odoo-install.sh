@@ -1,14 +1,19 @@
 
 #!/bin/bash
-################################################################################
-# Script para instalacao Odoo Debian 9
-# Author: Sidnei Brianti
+
+#####################################################################################################
+# OS: Debian 9
+# PostgreSQL: 9.6
+# Odoo:12
+# Autor: Sidnei Brianti
+#----------------------------------------------------------------------------------------------------
 # wget https://raw.githubusercontent.com/scbrianti/Postgres-Cluster-Deploy/9.6/04-odoo-install.sh
-# Place this content in it and then make the file executable:
+# Torne o arquivo executavel
 # sudo chmod +x 04-odoo-install.sh
-# Execute the script to install Odoo:
-# ./04-odoo-install.sh
-################################################################################
+# Altere as variável PGBOUNCER para os parametros de sua rede
+# Execute o script para instalar Postgresql Master:
+# sudo ./04-odoo-install.sh
+#######################################################################################################
 
 OE_USER="odoo"
 OE_HOME="/$OE_USER"
@@ -21,7 +26,7 @@ $OE_EXTRA/oca-server-auth/"
 
 INSTALL_WKHTMLTOPDF="True"
 
-PGBOUNCER="x.x.x.x"
+PGBOUNCER="192.168.0.2"
 PGBOUNCER_PORT="6432"
 
 
@@ -35,6 +40,7 @@ OE_CONFIG="${OE_USER}-server"
 
 #PostgreSQL Version
 OE_POSTGRESQL_VERSION="10"
+ODOO_DB_PASS = "odoo"
 
 ###  WKHTMLTOPDF download links
 WKHTMLTOX_X64=https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb
