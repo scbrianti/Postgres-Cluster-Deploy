@@ -9,8 +9,8 @@
 # sudo ./03-pgbouncer-install.sh
 #######################################################################################################
 
-MASTER="master.domain"
-SLAVE="slave.domain"
+MASTER="x.x.x.x"
+SLAVE="x.x.x.x"
 ODOO_DB_USER="odoo"
 ODOO_DB_PASS="odoo"
 
