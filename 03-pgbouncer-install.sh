@@ -11,8 +11,8 @@
 # sudo ./03-pgbouncer-install.sh
 #######################################################################################################
 
-MASTER_IP="192.168.1.10"
-SLAVE_IP="192.168.1.11"
+MASTER="master.domain"
+SLAVE="slave.domain"
 ODOO_DB_USER="odoo"
 ODOO_DB_PASS="odoo"
 
@@ -30,7 +30,7 @@ echo -e "\n---- Install PgBouncer ----"
 sudo apt install postgresql-client pgbouncer -yV
 
 echo -e "\n---- Configure PgBouncer ----"
-sudo sed -i "s/;\* = host=testserver/* = host=$MASTER_IP/g" /etc/pgbouncer/pgbouncer.ini
+sudo sed -i "s/;\* = host=testserver/* = host=$MASTER/g" /etc/pgbouncer/pgbouncer.ini
 sudo sed -i "s/listen_addr = 127.0.0.1/listen_addr = 0.0.0.0/g" /etc/pgbouncer/pgbouncer.ini
 sudo sed -i "s/auth_type = trust/auth_type = md5/g" /etc/pgbouncer/pgbouncer.ini
 echo "admin_users = odoo" | sudo tee -a /etc/pgbouncer/pgbouncer.ini
@@ -40,11 +40,11 @@ sudo service pgbouncer restart
 echo -e "\n---- Prepare Failover Scripts ----"
 cat <<EOF > ~/switch-node1
 #!/bin/bash
-sudo sed -i "s/\* = host=$SLAVE_IP/* = host=$MASTER_IP/g" /etc/pgbouncer/pgbouncer.ini
+sudo sed -i "s/\* = host=$SLAVE/* = host=$MASTER/g" /etc/pgbouncer/pgbouncer.ini
 sudo service pgbouncer restart
 EOF
 cat <<EOF > ~/switch-node2
-sudo sed -i "s/\* = host=$MASTER_IP/* = host=$SLAVE_IP/g" /etc/pgbouncer/pgbouncer.ini
+sudo sed -i "s/\* = host=$MASTER/* = host=$SLAVE/g" /etc/pgbouncer/pgbouncer.ini
 sudo service pgbouncer restart
 EOF
 sudo chmod +x ~/switch-node1
