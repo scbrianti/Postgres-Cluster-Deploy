@@ -11,8 +11,8 @@
 # sudo ./02-slave-install.sh
 #######################################################################################################
 
-MASTER_IP="192.168.1.10"
-SLAVE_IP="192.168.1.11"
+MASTER="master.domain"
+SLAVE="slave.domain"
 
 #--------------------------------------------------
 # Update Server
@@ -25,7 +25,7 @@ sudo apt upgrade -yV
 # Install PostgreSQL Server
 #--------------------------------------------------
 echo -e "\n---- Install PostgreSQL Server ----"
-sudo apt install postgresql-9.5 postgresql-9.5-repmgr postgresql-client-9.5 -yV
+sudo apt install postgresql-9.6 postgresql-9.6-repmgr postgresql-client-9.6 -yV
 
 echo -e "\n---- Copy RSA keys sent from Node1 ----"
 sudo chown postgres.postgres ~/authorized_keys ~/id_rsa.pub ~/id_rsa
@@ -41,12 +41,12 @@ node=2
 node_name=node2
 use_replication_slots=1
 conninfo='host=$SLAVE_IP user=repmgr dbname=repmgr'
-pg_bindir=/usr/lib/postgresql/9.5/bin" | sudo tee -a /etc/repmgr/repmgr.conf
+pg_bindir=/usr/lib/postgresql/9.6/bin" | sudo tee -a /etc/repmgr/repmgr.conf
 
 echo -e "\n---- Clone Master to Slave ----"
-sudo su - postgres -c "ssh-keyscan -H $MASTER_IP >> ~/.ssh/known_hosts"
+sudo su - postgres -c "ssh-keyscan -H $MASTER >> ~/.ssh/known_hosts"
 sudo service postgresql stop
-sudo su - postgres -c "repmgr -f /etc/repmgr/repmgr.conf --force --rsync-only -h $MASTER_IP -d repmgr -U repmgr --verbose standby clone"
+sudo su - postgres -c "repmgr -f /etc/repmgr/repmgr.conf --force --rsync-only -h $MASTER -d repmgr -U repmgr --verbose standby clone"
 sudo service postgresql restart
 sudo su - postgres -c "repmgr -f /etc/repmgr/repmgr.conf --force standby register"
 sudo su - postgres -c "repmgr -f /etc/repmgr/repmgr.conf cluster show"
@@ -60,7 +60,7 @@ EOF
 cat <<EOF > ~/demote-server
 #!/bin/bash
 sudo service postgresql stop
-sudo su - postgres -c "repmgr -f /etc/repmgr/repmgr.conf --force --rsync-only -h $MASTER_IP -d repmgr -U repmgr --verbose standby clone"
+sudo su - postgres -c "repmgr -f /etc/repmgr/repmgr.conf --force --rsync-only -h $MASTER -d repmgr -U repmgr --verbose standby clone"
 sudo service postgresql restart
 sudo su - postgres -c "repmgr -f /etc/repmgr/repmgr.conf --force standby register"
 EOF
