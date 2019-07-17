@@ -1,22 +1,24 @@
 #!/bin/bash
 #####################################################################################################
-# This script will install Postgres as Master Node on your Debian 9 server.
-# Author: Sidnei Brianti
+# OS: Debian 9
+# PostgreSQL: 9.6
+# Autor: Sidnei Brianti
 #----------------------------------------------------------------------------------------------------
 # wget https://raw.githubusercontent.com/scbrianti/Postgres-Cluster-Deploy/9.6/01-master-install.sh
-# Place this content in it and then make the file executable:
+# Torne o arquivo executavel
 # sudo chmod +x 01-master-install.sh
-# Execute the script to install Postgres:
+# Altere as variáveis MASTER,SLAVE,NETWORK,SLAVE_USER,SLAVE_PASS para os parametros de sua rede
+# Execute o script para instalar Postgresql Master:
 # sudo ./01-master-install.sh
 #######################################################################################################
 
 ODOO_DB_USER="odoo"
 ODOO_DB_PASS="odoo"
-MASTER="x.x.x.x"
-SLAVE="x.x.x.x"
+MASTER="192.168.0.3"
+SLAVE="192.168.0.4"
 SLAVE_USER="sidnei"
 SLAVE_PASS="sidnei"
-NETWORK="x.x.x.0/24"
+NETWORK="192.168.0.0/24"
 
 #--------------------------------------------------
 # Update Server
