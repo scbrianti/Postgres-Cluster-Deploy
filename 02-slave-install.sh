@@ -42,7 +42,7 @@ echo "cluster=Odoo
 node=2
 node_name=node2
 use_replication_slots=1
-conninfo='host=$SLAVE_IP user=repmgr dbname=repmgr'
+conninfo='host=$SLAVE user=repmgr dbname=repmgr'
 pg_bindir=/usr/lib/postgresql/9.6/bin" | sudo tee -a /etc/repmgr/repmgr.conf
 
 echo -e "\n---- Clone Master to Slave ----"
