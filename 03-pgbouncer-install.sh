@@ -1,6 +1,6 @@
 #!/bin/bash
 #####################################################################################################
-# This script will install PgBouncer on your Ubuntu 16.04 server.
+# This script will install PgBouncer on your Debian 9 server.
 # Author: Mohamed Hammad
 #----------------------------------------------------------------------------------------------------
 # Make a new file:
