@@ -8,7 +8,7 @@
 # Torne o arquivo executavel
 # sudo chmod +x 02-slave-install.sh
 # Altere as variáveis MASTER,SLAVE para os parametros de sua rede
-# Execute o script para instalar Postgresql Master:
+# Execute o script para instalar Postgresql Slave:
 # sudo ./02-slave-install.sh
 #######################################################################################################
 
