@@ -1,10 +1,9 @@
 #!/bin/bash
 #####################################################################################################
 # This script will install Postgres as Master Node on your Debian 9 server.
-# Author: Mohamed Hammad
+# Author: Sidnei Brianti
 #----------------------------------------------------------------------------------------------------
-# Make a new file:
-# sudo nano 01-master-install.sh
+# wget https://raw.githubusercontent.com/scbrianti/Postgres-Cluster-Deploy/9.6/01-master-install.sh
 # Place this content in it and then make the file executable:
 # sudo chmod +x 01-master-install.sh
 # Execute the script to install Postgres:
