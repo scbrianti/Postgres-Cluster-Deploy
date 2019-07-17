@@ -3,11 +3,11 @@
 ################################################################################
 # Script para instalacao Odoo Debian 9
 # Author: Sidnei Brianti
-# wget https://raw.githubusercontent.com/scbrianti/InstallScript/12.0/odoo_install.sh
+# wget https://raw.githubusercontent.com/scbrianti/Postgres-Cluster-Deploy/9.6/04-odoo-install.sh
 # Place this content in it and then make the file executable:
-# sudo chmod +x odoo_install.sh
+# sudo chmod +x 04-odoo-install.sh
 # Execute the script to install Odoo:
-# ./odoo_install
+# ./04-odoo-install.sh
 ################################################################################
 
 OE_USER="odoo"
