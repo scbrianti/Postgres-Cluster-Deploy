@@ -11,7 +11,7 @@
 # Torne o arquivo executavel
 # sudo chmod +x 04-odoo-install.sh
 # Altere as variável PGBOUNCER para os parametros de sua rede
-# Execute o script para instalar Postgresql Master:
+# Execute o script para instalar Odoo 12:
 # sudo ./04-odoo-install.sh
 #######################################################################################################
 
@@ -26,7 +26,7 @@ $OE_EXTRA/oca-server-auth/"
 
 INSTALL_WKHTMLTOPDF="True"
 
-PGBOUNCER="192.168.0.2"
+PGBOUNCER="pgbouncer"
 PGBOUNCER_PORT="6432"
 
 
@@ -38,8 +38,6 @@ OE_VERSION="12.0"
 OE_SUPERADMIN="admin"
 OE_CONFIG="${OE_USER}-server"
 
-#PostgreSQL Version
-OE_POSTGRESQL_VERSION="10"
 ODOO_DB_PASS = "odoo"
 
 ###  WKHTMLTOPDF download links
