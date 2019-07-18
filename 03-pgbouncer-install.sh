@@ -12,8 +12,8 @@
 # sudo ./02-slave-install.sh
 #######################################################################################################
 
-MASTER="192.168.0.3"
-SLAVE="192.168.0.4"
+MASTER="psql1"
+SLAVE="psql2"
 ODOO_DB_USER="odoo"
 ODOO_DB_PASS="odoo"
 
@@ -39,16 +39,16 @@ echo "\"$ODOO_DB_USER\" \"$ODOO_DB_PASS\"" | sudo tee -a /etc/pgbouncer/userlist
 sudo service pgbouncer restart
 
 echo -e "\n---- Prepare Failover Scripts ----"
-cat <<EOF > ~/switch-node1
+cat <<EOF > ~/switch-$MASTER
 #!/bin/bash
 sudo sed -i "s/\* = host=$SLAVE/* = host=$MASTER/g" /etc/pgbouncer/pgbouncer.ini
 sudo service pgbouncer restart
 EOF
-cat <<EOF > ~/switch-node2
+cat <<EOF > ~/switch-$SLAVE
 sudo sed -i "s/\* = host=$MASTER/* = host=$SLAVE/g" /etc/pgbouncer/pgbouncer.ini
 sudo service pgbouncer restart
 EOF
-sudo chmod +x ~/switch-node1
-sudo chmod +x ~/switch-node2
+sudo chmod +x ~/switch-$MASTER
+sudo chmod +x ~/switch-$SLAVE
 
 echo -e "\n---- Completed PgBouncer Installation Successfully ----"
