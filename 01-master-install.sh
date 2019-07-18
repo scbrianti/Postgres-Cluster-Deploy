@@ -14,8 +14,8 @@
 
 ODOO_DB_USER="odoo"
 ODOO_DB_PASS="odoo"
-MASTER="192.168.0.3"
-SLAVE="192.168.0.4"
+MASTER="psql1"
+SLAVE="psql2"
 SLAVE_USER="sidnei"
 SLAVE_PASS="sidnei"
 NETWORK="192.168.0.0/24"
