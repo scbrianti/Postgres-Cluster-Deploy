@@ -72,7 +72,7 @@ echo -e "\n---- Configure Replication Manager ----"
 sudo mkdir -p /etc/repmgr
 echo "cluster=Odoo
 node=1
-node_name=node1
+node_name=$MASTER
 use_replication_slots=1
 conninfo='host=$MASTER user=repmgr dbname=repmgr'
 pg_bindir=/usr/lib/postgresql/9.6/bin" | sudo tee -a /etc/repmgr/repmgr.conf
